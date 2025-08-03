@@ -1,0 +1,12 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter first number: ");
+        Float num1 = sc.nextFloat();
+        System.out.println("Enter second number: ");
+        Float num2 = sc.nextFloat();
+         System.out.println("Multiplication of num1 and num2 is "+num1*num2);
+         sc.close();
+    }
+}
