@@ -7,7 +7,7 @@ public class rock_paper_scissor {
         Random rand = new Random();
 
         System.out.println("Enter your choice: Rock, Paper, or Scissors");
-        String userChoice = sc.next().toLowerCase(); 
+        String userChoice = sc.next().toLowerCase(); 1
 
         int compChoice = rand.nextInt(3) + 1;
         String compMove = "";
