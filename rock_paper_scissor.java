@@ -1,27 +1,73 @@
 import java.util.Scanner;
+import java.util.Random;
+
 public class rock_paper_scissor {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter your choice (rock, paper, scissors): ");
-        String userChoice = scanner.nextLine().toLowerCase();
+        Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
 
-        String[] choices = {"rock", "paper", "scissors"};
-        String computerChoice = choices[(int) (Math.random() * 3)];
+        System.out.println("Enter your choice: Rock, Paper, or Scissors");
+        String userChoice = sc.next().toLowerCase(); 
 
-        System.out.println("Computer chose: " + computerChoice);
+        int compChoice = rand.nextInt(3) + 1;
+        String compMove = "";
 
-        if (userChoice.equals(computerChoice)) {
-            System.out.println("It's a tie!");
-        } else if ((userChoice.equals("rock") && computerChoice.equals("scissors")) ||
-                   (userChoice.equals("paper") && computerChoice.equals("rock")) ||
-                   (userChoice.equals("scissors") && computerChoice.equals("paper"))) {
-            System.out.println("You win!");
-        } else if (userChoice.equals("rock") || userChoice.equals("paper") || userChoice.equals("scissors")) {
-            System.out.println("Computer wins!");
-        } else {
-            System.out.println("Invalid choice. Please choose rock, paper, or scissors.");
+        switch (compChoice) {
+            case 1: compMove = "rock"; break;
+            case 2: compMove = "paper"; break;
+            case 3: compMove = "scissors"; break;
         }
 
-        scanner.close();
+        System.out.println("You chose: " + userChoice);
+        System.out.println("Computer chose: " + compMove);
+
+        switch (userChoice) {
+            case "rock":
+                switch (compMove) {
+                    case "rock":
+                        System.out.println("Result: Draw! Both chose Rock");
+                        break;
+                    case "paper":
+                        System.out.println("Result: You Lose! Paper covers Rock");
+                        break;
+                    case "scissors":
+                        System.out.println("Result: You Win! Rock breaks Scissors");
+                        break;
+                }
+                break;
+
+            case "paper":
+                switch (compMove) {
+                    case "rock":
+                        System.out.println("Result: You Win! Paper covers Rock");
+                        break;
+                    case "paper":
+                        System.out.println("Result: Draw! Both chose Paper");
+                        break;
+                    case "scissors":
+                        System.out.println("Result: You Lose! Scissors cut Paper");
+                        break;
+                }
+                break;
+
+            case "scissors":
+                switch (compMove) {
+                    case "rock":
+                        System.out.println("Result: You Lose! Rock breaks Scissors");
+                        break;
+                    case "paper":
+                        System.out.println("Result: You Win! Scissors cut Paper");
+                        break;
+                    case "scissors":
+                        System.out.println("Result: Draw! Both chose Scissors");
+                        break;
+                }
+                break;
+
+            default:
+                System.out.println("Invalid choice! Please type Rock, Paper, or Scissors.");
+        }
+
+        sc.close();
     }
 }
