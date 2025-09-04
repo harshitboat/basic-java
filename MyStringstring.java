@@ -1,4 +1,4 @@
-public class string {
+public class MyStringstring {
     public static void main(String[] args) {
         String str1 = "string examples";
         int length = str1.length();
